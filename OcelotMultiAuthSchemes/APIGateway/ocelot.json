@@ -1,0 +1,41 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/categories",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "categories_auth_scheme",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/apigateway/categories",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "products_auth_scheme",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/apigateway/products",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+    
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl":  "http://localhost:5000"
+
+  }
+}
