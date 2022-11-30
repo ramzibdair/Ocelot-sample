@@ -1,13 +1,20 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/categories",
+      "DownstreamPathTemplate": "/hr/employees",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 53937
         }
+      ],
+      "AddHeadersToRequest": {
+        "Authorization": "user:S@ptco4321, p@assw@ord:123",
+        "Accept-Language": "ar-sa"
+      },
+      "DelegatingHandlers": [
+        "HeaderDelegatingHandler"
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "categories_auth_scheme",
@@ -16,22 +23,22 @@
       "UpstreamPathTemplate": "/apigateway/categories",
       "UpstreamHttpMethod": [ "Get" ]
     },
-    {
-      "DownstreamPathTemplate": "/products",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5002
-        }
-      ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "products_auth_scheme",
-        "AllowedScopes": []
-      },
-      "UpstreamPathTemplate": "/apigateway/products",
-      "UpstreamHttpMethod": [ "Get" ]
-    }
+      {
+        "DownstreamPathTemplate": "/products",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 5002
+          }
+        ],
+        "AuthenticationOptions": {
+          "AuthenticationProviderKey": "products_auth_scheme",
+          "AllowedScopes": []
+        },
+        "UpstreamPathTemplate": "/apigateway/products",
+        "UpstreamHttpMethod": [ "Get" ]
+      }
     
   ],
   "GlobalConfiguration": {

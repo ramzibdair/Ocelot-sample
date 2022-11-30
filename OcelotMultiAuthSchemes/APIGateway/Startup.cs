@@ -57,7 +57,7 @@ namespace APIGateway
 
             });
 
-            services.AddOcelot(OcelotConfiguration);
+            services.AddOcelot(OcelotConfiguration).AddDelegatingHandler<HeaderDelegatingHandler>(); ;
 
             services.AddControllers();
         }
